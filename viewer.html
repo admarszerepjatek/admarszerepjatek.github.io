@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PDF megnyitása</title>
+  <meta name="theme-color" content="#1f6f49" />
+  <style>
+    :root { --emerald:#1f6f49; --paper:#f3efe6; }
+    html,body{height:100%;margin:0}
+    body{background:var(--paper); font-family: Georgia, "Times New Roman", Times, serif}
+    header{
+      position:fixed; inset:0 0 auto 0; display:flex; gap:.5rem; align-items:center;
+      padding:.5rem 1rem; background:#fff; border-bottom:1px solid rgba(0,0,0,.08); z-index:2
+    }
+    header a.btn{
+      display:inline-block; padding:.45rem .7rem; border-radius:.5rem; text-decoration:none;
+      background:var(--emerald); color:#fff; font-weight:600
+    }
+    header .title{margin-left:auto; color:#2b2b2b; font-weight:600}
+    iframe.viewer{
+      position:fixed; inset:48px 0 0 0; width:100%; height:calc(100% - 48px); border:0
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="btn" href="index.html">← Vissza</a>
+    <a id="dl" class="btn" href="#" download>Letöltés</a>
+    <div id="ttl" class="title">Dokumentum</div>
+  </header>
+
+  <iframe id="frame" class="viewer" title="PDF néző" src=""></iframe>
+
+  <noscript>
+    <p style="padding:1rem">A PDF megtekintéséhez engedélyezd a JavaScriptet, vagy
+      <a id="noscript-link" href="#">töltsd le a dokumentumot</a>.
+    </p>
+  </noscript>
+
+  <script>
+    // nagyon egyszerű query parser
+    const p = new URLSearchParams(location.search);
+    const file = p.get('f') || '';
+    const title = p.get('title') || 'Dokumentum';
+
+    // csak relatív útvonalat engedünk (biztonság kedvéért)
+    if (!file || /^(https?:)?\/\//i.test(file)) {
+      document.getElementById('ttl').textContent = 'Hiba: hiányzó vagy érvénytelen fájl';
+    } else {
+      document.title = title + ' – PDF';
+      document.getElementById('ttl').textContent = title;
+      document.getElementById('frame').src = file + '#toolbar=1&navpanes=0';
+      document.getElementById('dl').href = file;
+      const ns = document.getElementById('noscript-link');
+      if (ns) ns.href = file;
+    }
+  </script>
+</body>
+</html>
