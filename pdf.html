@@ -3,59 +3,60 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Smaragd – LARP ismertető (PDF) – jelentkezés: admarszerepjatek@gmail.com</title>
+  <title>Smaragd – LARP ismertető (PDF)</title>
   <meta name="description" content="Smaragd LARP ismertető. Jelentkezés: admarszerepjatek@gmail.com">
   <style>
-    :root { --mail-offset: 5cm; } /* ha kell, itt állítsd a vízszintes eltolást */
-
     html, body { height:100%; margin:0; }
-    .viewer {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
+    header{
+      position:fixed; inset:0 0 auto 0; display:flex; gap:.75rem; align-items:center;
+      padding:.6rem .9rem; border-bottom:1px solid #e5e5e5; background:#fff; z-index:10;
+      font:500 14px system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
     }
-
-    .mailbtn{
-      position: fixed;
-      top: 12px;
-      right: calc(12px + var(--mail-offset)); /* 5 cm-rel beljebb a jobb szélről */
-      z-index: 1000;
-      padding: .5rem .8rem;
-      border-radius: 10px;
-      border: 1px solid #0a58ca;
-      background: #0d6efd;
-      color: #fff;
-      font: 600 14px system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      text-decoration: none;
-      box-shadow: 0 2px 10px rgba(0,0,0,.15);
-    }
-    .mailbtn:hover { background:#0b5ed7; }
-
-    /* Mobilon rakjuk le alulra, hogy ne lógjon be */
-    @media (max-width: 720px){
-      .mailbtn { top: auto; bottom: 12px; right: 12px; }
-    }
+    header a{ color:#0d6efd; text-decoration:none }
+    header .grow{ flex:1; color:#333 }
+    .viewer{ position:fixed; inset:44px 0 0 0; width:100%; height:calc(100% - 44px); border:0 }
   </style>
 </head>
 <body>
 
-  <!-- Lebegő jelentkezés gomb
-<a class="mailbtn"
-   href="mailto:admarszerepjatek@gmail.com?subject=%C3%89rdekl%C5%91d%C3%A9s%20Smaragd%20LARP%20%C3%BCgyben">
-  Érdeklődés emailben
-</a> -->
+  <header>
+    <a href="./">← Vissza</a>
+    <div class="grow">Smaragd – LARP ismertető (PDF)</div>
+    <a id="dl" download>Letöltés</a>
+  </header>
 
-  <!-- PDF néző – a fájlnevet írd át, ha nem pontosan ez -->
-  <iframe class="viewer"
-          src="smaragd.pdf#toolbar=1&navpanes=0"
-          title="Smaragd LARP ismertető (PDF)"></iframe>
+  <iframe class="viewer" id="frame" title="PDF néző"></iframe>
 
   <noscript>
     <p style="padding:1rem">A PDF megtekintéséhez
-      <a href="Smaragd.pdf">töltsd le a dokumentumot</a>.
+      <a href="smaragd.pdf" download>töltsd le a dokumentumot</a>.
     </p>
   </noscript>
+
+  <script>
+    // A PDF relatív útvonala (ha máshol van, itt írd át):
+    const PDF_PATH = 'smaragd.pdf';
+
+    // Abszolút URL a PDF-hez (a PDF.js viewernek ez kell):
+    const pdfAbsUrl = new URL(PDF_PATH, location.href).href;
+
+    // iOS detektálás
+    const ua = navigator.userAgent || '';
+    const isIOS = /iPad|iPhone|iPod/.test(ua);
+
+    // iOS-en PDF.js viewer, máshol natív beágyazás
+    const frame = document.getElementById('frame');
+    if (isIOS) {
+      // Mozilla által hostolt PDF.js viewer
+      frame.src = 'https://mozilla.github.io/pdf.js/web/viewer.html?file=' + encodeURIComponent(pdfAbsUrl);
+    } else {
+      frame.src = PDF_PATH + '#toolbar=1&navpanes=0';
+    }
+
+    // Letöltés gomb mindig közvetlenül a PDF-re mutat
+    const dl = document.getElementById('dl');
+    dl.href = PDF_PATH;
+    dl.setAttribute('download', PDF_PATH.split('/').pop());
+  </script>
 </body>
 </html>
