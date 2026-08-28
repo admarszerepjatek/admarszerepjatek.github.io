@@ -1,0 +1,1116 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Lovagok iratai – Smaragd Levéltár – Admari krónikák</title>
+
+  <meta
+    name="description"
+    content="A Smaragd élő szerepjáték lovagi iratai: királyi parancsok, levelek, hirdetmények és a Palotás Rend dokumentumai."
+  >
+
+  <meta name="theme-color" content="#1f6f49">
+
+  <style>
+    :root {
+      --emerald: #1f6f49;
+      --emerald-dark: #134d34;
+      --emerald-soft: #dfe9e2;
+
+      --paper: #f3efe6;
+      --paper-light: #faf8f2;
+
+      --ink: #1b1b1b;
+      --muted: #5b5b5b;
+
+      --border: rgba(31, 111, 73, 0.24);
+      --shadow: 0 12px 30px rgba(34, 30, 22, 0.16);
+
+      --max-width: 72rem;
+      --reading-width: 68ch;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      margin: 0;
+
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(255, 255, 255, 0.55),
+          transparent 35rem
+        ),
+        var(--paper);
+
+      color: var(--ink);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        Times,
+        serif;
+
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: var(--emerald-dark);
+      text-decoration-color: rgba(31, 111, 73, 0.4);
+      text-underline-offset: 3px;
+    }
+
+    a:hover,
+    a:focus-visible {
+      text-decoration-color: var(--emerald-dark);
+    }
+
+    .page-shell {
+      width: min(100% - 2rem, var(--max-width));
+      margin: 0 auto;
+    }
+
+
+    /* =====================================================
+       FELSŐ MENÜ
+       ===================================================== */
+
+    .site-nav {
+      background: rgba(250, 248, 242, 0.96);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+
+      min-height: 4rem;
+    }
+
+    .site-name {
+      color: var(--emerald-dark);
+
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-variant: small-caps;
+      letter-spacing: 0.08em;
+
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+
+    /* =====================================================
+       FEJLÉC
+       ===================================================== */
+
+    .hero {
+      padding: 4rem 0 2.7rem;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+
+      margin-bottom: 1rem;
+      padding: 0.35rem 0.75rem;
+
+      background: var(--emerald);
+      color: white;
+
+      border-radius: 0.4rem;
+
+      font-size: 0.85rem;
+      font-variant: small-caps;
+      letter-spacing: 0.1em;
+    }
+
+    h1,
+    h2,
+    h3 {
+      text-wrap: balance;
+    }
+
+    h1 {
+      margin: 0;
+
+      color: var(--emerald-dark);
+
+      font-size: clamp(2.4rem, 7vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero-title-rule {
+      width: min(15rem, 55vw);
+      height: 3px;
+
+      margin: 1rem auto 1.3rem;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--emerald),
+          transparent
+        );
+    }
+
+    .hero-subtitle {
+      max-width: 48rem;
+      margin: 0 auto;
+
+      color: var(--muted);
+
+      font-size: 1.08rem;
+    }
+
+
+    /* =====================================================
+       TARTALOM
+       ===================================================== */
+
+    main {
+      padding-bottom: 4rem;
+    }
+
+    section {
+      margin: 3rem 0;
+    }
+
+    .reading-section {
+      max-width: var(--reading-width);
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .section-title {
+      margin: 0 0 1rem;
+
+      color: var(--emerald-dark);
+
+      font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+      font-variant: small-caps;
+      letter-spacing: 0.06em;
+    }
+
+    .intro {
+      font-size: 1.08rem;
+    }
+
+    .intro-lead {
+      color: var(--emerald-dark);
+
+      font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+
+    /* =====================================================
+       DOKUMENTUMOK
+       ===================================================== */
+
+    .document-list {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .document-card {
+      display: grid;
+      grid-template-columns: minmax(12rem, 18rem) 1fr;
+      gap: 0;
+
+      overflow: hidden;
+
+      background: rgba(255, 255, 255, 0.72);
+
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+
+      box-shadow: 0 7px 20px rgba(34, 30, 22, 0.09);
+    }
+
+
+    /* ELŐNÉZET */
+
+    .document-preview {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 23rem;
+      padding: 1rem;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(31, 111, 73, 0.08),
+          rgba(255, 255, 255, 0.3)
+        );
+
+      border-right: 1px solid var(--border);
+
+      text-decoration: none;
+    }
+
+    .document-preview img {
+      width: auto;
+      max-width: 100%;
+      max-height: 27rem;
+
+      object-fit: contain;
+
+      border: 1px solid rgba(34, 30, 22, 0.2);
+
+      box-shadow:
+        0 7px 16px rgba(34, 30, 22, 0.22);
+
+      transition:
+        transform 160ms ease,
+        box-shadow 160ms ease;
+    }
+
+    .document-preview:hover img,
+    .document-preview:focus-visible img {
+      transform: scale(1.025);
+
+      box-shadow:
+        0 10px 22px rgba(34, 30, 22, 0.3);
+    }
+
+    .preview-label {
+      position: absolute;
+      right: 0.7rem;
+      bottom: 0.6rem;
+
+      padding: 0.2rem 0.5rem;
+
+      background: rgba(250, 248, 242, 0.92);
+      color: var(--muted);
+
+      border-radius: 0.3rem;
+
+      font-size: 0.72rem;
+      font-variant: small-caps;
+      letter-spacing: 0.06em;
+    }
+
+
+    /* DOKUMENTUM SZÖVEGE */
+
+    .document-content {
+      display: flex;
+      flex-direction: column;
+
+      padding: clamp(1.4rem, 3vw, 2.2rem);
+    }
+
+    .document-type {
+      margin: 0 0 0.35rem;
+
+      color: var(--muted);
+
+      font-size: 0.8rem;
+      font-variant: small-caps;
+      letter-spacing: 0.1em;
+    }
+
+    .document-title {
+      margin: 0 0 0.75rem;
+
+      color: var(--emerald-dark);
+
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      line-height: 1.2;
+    }
+
+    .document-description {
+      max-width: 55ch;
+      margin: 0 0 1rem;
+    }
+
+    .document-meta {
+      margin: 0 0 1.4rem;
+
+      color: var(--muted);
+
+      font-size: 0.9rem;
+    }
+
+    .document-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+
+      margin-top: auto;
+    }
+
+    .document-button {
+      display: inline-block;
+
+      padding: 0.7rem 1.1rem;
+
+      background: var(--emerald);
+      color: white;
+
+      border: 2px solid var(--emerald);
+      border-radius: 0.5rem;
+
+      box-shadow:
+        0 6px 14px rgba(31, 111, 73, 0.2);
+
+      font-size: 0.95rem;
+      font-weight: 700;
+
+      text-decoration: none;
+
+      transition:
+        transform 140ms ease,
+        background-color 140ms ease,
+        box-shadow 140ms ease;
+    }
+
+    .document-button:hover,
+    .document-button:focus-visible {
+      background: var(--emerald-dark);
+      color: white;
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 9px 19px rgba(31, 111, 73, 0.28);
+    }
+
+    .pdf-note {
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+
+    /* =====================================================
+       VISSZALÉPÉS
+       ===================================================== */
+
+    .back-area {
+      margin-top: 3rem;
+      padding-top: 2rem;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .back-link {
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .back-link::before {
+      content: "← ";
+    }
+
+
+    /* =====================================================
+       LÁBLÉC
+       ===================================================== */
+
+    footer {
+      padding: 1.5rem 0 2.5rem;
+
+      color: var(--muted);
+
+      border-top: 1px solid var(--border);
+
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+
+    /* =====================================================
+       MOBIL
+       ===================================================== */
+
+    @media (max-width: 760px) {
+
+      .nav-inner {
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.4rem;
+
+        padding: 0.8rem 0;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
+
+      .document-card {
+        grid-template-columns: 1fr;
+      }
+
+      .document-preview {
+        min-height: 0;
+
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .document-preview img {
+        max-height: 32rem;
+      }
+
+    }
+
+    @media (max-width: 480px) {
+
+      .page-shell {
+        width: min(100% - 1.2rem, var(--max-width));
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .document-content {
+        padding: 1.2rem;
+      }
+
+    }
+  </style>
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%231f6f49' d='M32 4 6 18l10 34h32l10-34L32 4zm0 8 16 8-8 24H24l-8-24 16-8z'/%3E%3C/svg%3E"
+  >
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       FELSŐ MENÜ
+       ===================================================== -->
+
+  <nav class="site-nav">
+
+    <div class="page-shell nav-inner">
+
+      <a class="site-name" href="../../index.html">
+        Admari krónikák
+      </a>
+
+      <ul class="nav-links">
+
+        <li>
+          <a href="../../index.html">
+            Főoldal
+          </a>
+        </li>
+
+        <li>
+          <a href="../index.html">
+            Smaragd
+          </a>
+        </li>
+
+        <li>
+          <a href="../leveltar.html">
+            Levéltár
+          </a>
+        </li>
+
+        <li>
+          <a href="../galeria.html">
+            Galéria
+          </a>
+        </li>
+
+        <li>
+          <a href="../irasok.html">
+            Írások
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =====================================================
+       FEJLÉC
+       ===================================================== -->
+
+  <header class="hero">
+
+    <div class="page-shell">
+
+      <span class="badge">
+        Smaragd · Levéltár · I. gyűjtemény
+      </span>
+
+      <h1>Lovagok</h1>
+
+      <div
+        class="hero-title-rule"
+        aria-hidden="true"
+      ></div>
+
+      <p class="hero-subtitle">
+        A király, a Palotás Rend és az Udvaros Rend
+        Csepkefalvához kapcsolódó parancsai,
+        levelei és hirdetményei.
+      </p>
+
+    </div>
+
+  </header>
+
+
+  <main class="page-shell">
+
+
+    <!-- =====================================================
+         BEVEZETŐ
+         ===================================================== -->
+
+    <section class="reading-section intro">
+
+      <p class="intro-lead">
+        A korona emberei királyi paranccsal
+        érkeztek Csepkefalvára.
+      </p>
+
+      <p>
+        A gyűjtemény a küldetésükhöz kapcsolódó
+        fennmaradt iratokat tartalmazza.
+      </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         DOKUMENTUMOK
+         ===================================================== -->
+
+    <section aria-labelledby="iratok-cim">
+
+      <h2
+        class="section-title"
+        id="iratok-cim"
+      >
+        Iratok
+      </h2>
+
+
+      <div class="document-list">
+
+
+        <!-- =================================================
+             ŐFELSÉGE PARANCSA
+             ================================================= -->
+
+        <article class="document-card">
+
+          <a
+            class="document-preview"
+            href="pdf/lovagok/Őfelsége_parancsa.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Őfelsége parancsának megnyitása"
+          >
+
+            <img
+              src="preview/lovagok/Őfelsége_parancsa.jpg"
+              alt="Őfelsége parancsa – előnézet"
+              loading="lazy"
+            >
+
+            <span class="preview-label">
+              Előnézet
+            </span>
+
+          </a>
+
+
+          <div class="document-content">
+
+            <p class="document-type">
+              Királyi parancs
+            </p>
+
+            <h3 class="document-title">
+              Őfelsége parancsa
+            </h3>
+
+            <p class="document-description">
+              Admar királyának rendelkezése a
+              Csepkefalvára induló lovagok számára.
+              A küldetés célja a bányához vezető út megnyitása
+              és a termelés helyreállítása.
+            </p>
+
+            <p class="document-meta">
+              PDF dokumentum
+            </p>
+
+            <div class="document-actions">
+
+              <a
+                class="document-button"
+                href="pdf/lovagok/Őfelsége_parancsa.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Dokumentum megtekintése
+              </a>
+
+              <span class="pdf-note">
+                Új lapon nyílik meg
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             HEDWALTZ LEVELE
+             ================================================= -->
+
+        <article class="document-card">
+
+          <a
+            class="document-preview"
+            href="pdf/lovagok/Hedwaltz_levele.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Hedwaltz levelének megnyitása"
+          >
+
+            <img
+              src="preview/lovagok/Hedwaltz_levele.jpg"
+              alt="Hedwaltz levele – előnézet"
+              loading="lazy"
+            >
+
+            <span class="preview-label">
+              Előnézet
+            </span>
+
+          </a>
+
+
+          <div class="document-content">
+
+            <p class="document-type">
+              Kiegészítő utasítás
+            </p>
+
+            <h3 class="document-title">
+              Hedwaltz levele
+            </h3>
+
+            <p class="document-description">
+              A királyi parancshoz csatolt utasítás.
+              Figyelmeztet a vidék forrongó állapotára,
+              a helyiek megfelelő kezelésére és a
+              bányászok, mesterek és kereskedők
+              szerveződésére.
+            </p>
+
+            <p class="document-meta">
+              PDF dokumentum
+            </p>
+
+            <div class="document-actions">
+
+              <a
+                class="document-button"
+                href="pdf/lovagok/Hedwaltz_levele.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Dokumentum megtekintése
+              </a>
+
+              <span class="pdf-note">
+                Új lapon nyílik meg
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             HELEDAR LEVELE
+             ================================================= -->
+
+        <article class="document-card">
+
+          <a
+            class="document-preview"
+            href="pdf/lovagok/Heledar_levele.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Heledar levelének megnyitása"
+          >
+
+            <img
+              src="preview/lovagok/Heledar_levele.jpg"
+              alt="Heledar levele – előnézet"
+              loading="lazy"
+            >
+
+            <span class="preview-label">
+              Előnézet
+            </span>
+
+          </a>
+
+
+          <div class="document-content">
+
+            <p class="document-type">
+              Rendtársi levél
+            </p>
+
+            <h3 class="document-title">
+              Heledar levele
+            </h3>
+
+            <p class="document-description">
+              A lovagok számára hátrahagyott levél,
+              amely egy régi történetet és a
+              smaragdokhoz kapcsolódó nyomokat
+              ismerteti.
+            </p>
+
+            <p class="document-meta">
+              PDF dokumentum
+            </p>
+
+            <div class="document-actions">
+
+              <a
+                class="document-button"
+                href="pdf/lovagok/Heledar_levele.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Dokumentum megtekintése
+              </a>
+
+              <span class="pdf-note">
+                Új lapon nyílik meg
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             KIRÁLYI HIRDETMÉNY / ADÓSZEDÉS
+             ================================================= -->
+
+        <article class="document-card">
+
+          <a
+            class="document-preview"
+            href="pdf/lovagok/Adószedés.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="A királyi hirdetmény megnyitása"
+          >
+
+            <img
+              src="preview/lovagok/Adószedés.jpg"
+              alt="Királyi hirdetmény az adószedésről – előnézet"
+              loading="lazy"
+            >
+
+            <span class="preview-label">
+              Előnézet
+            </span>
+
+          </a>
+
+
+          <div class="document-content">
+
+            <p class="document-type">
+              Királyi hirdetmény
+            </p>
+
+            <h3 class="document-title">
+              Adószedési hirdetmény
+            </h3>
+
+            <p class="document-description">
+              Királyi rendelkezés Csepkefalva
+              lakosságának adóztatásáról és a
+              behajtással megbízott lovagok
+              felhatalmazásáról.
+            </p>
+
+            <p class="document-meta">
+              PDF dokumentum
+            </p>
+
+            <div class="document-actions">
+
+              <a
+                class="document-button"
+                href="pdf/lovagok/Adószedés.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Dokumentum megtekintése
+              </a>
+
+              <span class="pdf-note">
+                Új lapon nyílik meg
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             TÖRVÉNYNAP
+             ================================================= -->
+
+        <article class="document-card">
+
+          <a
+            class="document-preview"
+            href="pdf/lovagok/Törvénynap.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="A törvénynapi hirdetmény megnyitása"
+          >
+
+            <img
+              src="preview/lovagok/Törvénynap.jpg"
+              alt="Csepkefalvai törvénynap – előnézet"
+              loading="lazy"
+            >
+
+            <span class="preview-label">
+              Előnézet
+            </span>
+
+          </a>
+
+
+          <div class="document-content">
+
+            <p class="document-type">
+              Hirdetmény
+            </p>
+
+            <h3 class="document-title">
+              Csepkefalvai törvénynap
+            </h3>
+
+            <p class="document-description">
+              Az Udvaros Rend hirdetménye a
+              Csepkefalván tartandó törvénynapról.
+              A falu lakói vitás ügyeikkel és
+              panaszaikkal a lovagokhoz fordulhattak.
+            </p>
+
+            <p class="document-meta">
+              PDF dokumentum
+            </p>
+
+            <div class="document-actions">
+
+              <a
+                class="document-button"
+                href="pdf/lovagok/Törvénynap.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Dokumentum megtekintése
+              </a>
+
+              <span class="pdf-note">
+                Új lapon nyílik meg
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             KIHÍVÓLEVÉL
+             ================================================= -->
+
+        <article class="document-card">
+
+          <a
+            class="document-preview"
+            href="pdf/lovagok/Kihívólevél.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="A kihívólevél megnyitása"
+          >
+
+            <img
+              src="preview/lovagok/Kihívólevél.jpg"
+              alt="Kihívólevél – előnézet"
+              loading="lazy"
+            >
+
+            <span class="preview-label">
+              Előnézet
+            </span>
+
+          </a>
+
+
+          <div class="document-content">
+
+            <p class="document-type">
+              Üzenet
+            </p>
+
+            <h3 class="document-title">
+              Kihívólevél
+            </h3>
+
+            <p class="document-description">
+              Smaragd fejében
+              egyenlő erőkkel vívott harcra
+              hívják ki a zsoldosokat.
+            </p>
+
+            <p class="document-meta">
+              PDF dokumentum
+            </p>
+
+            <div class="document-actions">
+
+              <a
+                class="document-button"
+                href="pdf/lovagok/Kihívólevél.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Dokumentum megtekintése
+              </a>
+
+              <span class="pdf-note">
+                Új lapon nyílik meg
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         VISSZA
+         ===================================================== -->
+
+    <div class="back-area">
+
+      <a
+        class="back-link"
+        href="../leveltar.html"
+      >
+        Vissza a levéltárhoz
+      </a>
+
+    </div>
+
+
+  </main>
+
+
+  <footer>
+
+    <div class="page-shell">
+      © 2026 Admari krónikák · Smaragd · Levéltár · Lovagok
+    </div>
+
+  </footer>
+
+
+</body>
+</html>

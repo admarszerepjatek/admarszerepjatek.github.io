@@ -4,24 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Admari krónikák – Élő középkori fantasy kaland</title>
+  <title>Smaragd – Admari krónikák</title>
 
   <meta
     name="description"
-    content="Az Admari krónikák középkori fantasy élő szerepjáték-sorozat. Lépj be Admar világába, és válj a történet részévé!"
+    content="Smaragd – az Admari krónikák első epizódja. Történet, levéltár, galéria és írások a 2026. augusztus 21–23-i élő szerepjátékról."
   >
 
   <meta
     property="og:title"
-    content="Admari krónikák – Élő középkori fantasy kaland"
+    content="Smaragd – Admari krónikák"
   >
   <meta
     property="og:description"
-    content="Lépj be Admar világába! Középkori fantasy élő szerepjátékok, történetek és krónikák."
+    content="Az Admari krónikák első epizódjának története, levéltára, képei és írásai."
   >
   <meta property="og:type" content="website">
   <meta property="og:locale" content="hu_HU">
-  <meta property="og:image" content="promokep1.jpg">
+
+  <!-- A fájl a smaragd könyvtárban van, ezért egy szinttel feljebb keressük a képet -->
+  <meta property="og:image" content="../smaragd.jpg">
 
   <meta name="theme-color" content="#1f6f49">
 
@@ -181,9 +183,9 @@
 
       color: var(--emerald-dark);
 
-      font-size: clamp(2.4rem, 7vw, 4.8rem);
+      font-size: clamp(2.6rem, 8vw, 5.2rem);
       line-height: 1;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
@@ -210,7 +212,7 @@
       font-weight: 600;
     }
 
-    .hero-larp {
+    .hero-meta {
       margin: 0.5rem 0 0;
 
       color: var(--muted);
@@ -232,7 +234,7 @@
     }
 
 
-    /* ÁLTALÁNOS TARTALOM */
+    /* TARTALOM */
 
     main {
       padding-bottom: 4rem;
@@ -271,9 +273,9 @@
     }
 
 
-    /* KÁRTYÁK */
+    /* EPIZÓDINFORMÁCIÓ */
 
-    .card {
+    .episode-info {
       padding: clamp(1.25rem, 3vw, 2rem);
 
       background: rgba(255, 255, 255, 0.72);
@@ -284,159 +286,123 @@
       box-shadow: 0 7px 20px rgba(34, 30, 22, 0.08);
     }
 
+    .episode-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
 
-    /* KÖVETKEZŐ JÁTÉK */
-
-    .next-game {
-      text-align: center;
+      margin: 0;
     }
 
-    .next-game p {
-      max-width: 55ch;
-      margin-right: auto;
-      margin-left: auto;
+    .episode-item {
+      padding: 1rem;
+
+      background: var(--paper-light);
+
+      border: 1px solid rgba(31, 111, 73, 0.15);
+      border-radius: 0.55rem;
     }
 
-    .coming-soon {
-      display: inline-block;
-      margin-top: 0.75rem;
-      padding: 0.45rem 0.9rem;
+    .episode-item dt {
+      margin-bottom: 0.3rem;
 
-      background: var(--emerald-soft);
-      color: var(--emerald-dark);
+      color: var(--muted);
 
-      border: 1px solid var(--border);
-      border-radius: 0.4rem;
-
-      font-weight: 700;
+      font-size: 0.82rem;
       font-variant: small-caps;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
+    }
+
+    .episode-item dd {
+      margin: 0;
+
+      color: var(--ink);
+      font-size: 1.05rem;
+      font-weight: 700;
     }
 
 
-    /* KRÓNIKÁK */
+    /* KRÓNIKA MENÜKÁRTYÁK */
 
-    .chronicle-grid {
+    .archive-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.5rem;
     }
 
-    .chronicle-card {
-      overflow: hidden;
+    .archive-card {
+      display: flex;
+      flex-direction: column;
 
-      background: var(--paper-light);
+      min-height: 14rem;
+      padding: 1.6rem;
+
+      background: rgba(255, 255, 255, 0.72);
 
       border: 1px solid var(--border);
       border-radius: 0.75rem;
 
       box-shadow: 0 7px 20px rgba(34, 30, 22, 0.08);
-    }
-
-    .chronicle-image {
-      width: 100%;
-      height: 17rem;
-
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .chronicle-content {
-      padding: 1.5rem;
-    }
-
-    .chronicle-number {
-      margin: 0 0 0.25rem;
-
-      color: var(--muted);
-
-      font-size: 0.85rem;
-      font-variant: small-caps;
-      letter-spacing: 0.08em;
-    }
-
-    .chronicle-title {
-      margin: 0 0 0.5rem;
-
-      color: var(--emerald-dark);
-
-      font-size: 1.7rem;
-    }
-
-    .chronicle-meta {
-      margin: 0 0 1rem;
-
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .chronicle-content p {
-      margin-top: 0;
-    }
-
-
-    /* GOMB */
-
-    .cta-button {
-      display: inline-block;
-      padding: 0.8rem 1.35rem;
-
-      background: var(--emerald);
-      color: white;
-
-      border: 2px solid var(--emerald);
-      border-radius: 0.55rem;
-
-      box-shadow: 0 7px 18px rgba(31, 111, 73, 0.22);
-
-      font-size: 1rem;
-      font-weight: 700;
-      text-decoration: none;
 
       transition:
         transform 140ms ease,
-        background-color 140ms ease,
         box-shadow 140ms ease;
     }
 
-    .cta-button:hover,
-    .cta-button:focus-visible {
-      background: var(--emerald-dark);
-      color: white;
+    .archive-card:hover {
+      transform: translateY(-3px);
 
-      transform: translateY(-2px);
-
-      box-shadow: 0 10px 24px rgba(31, 111, 73, 0.3);
+      box-shadow: 0 12px 26px rgba(34, 30, 22, 0.13);
     }
 
+    .archive-number {
+      margin: 0 0 0.4rem;
 
-    /* KAPCSOLAT */
+      color: var(--muted);
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      font-size: 0.8rem;
+      font-variant: small-caps;
+      letter-spacing: 0.1em;
     }
 
-    .contact-block {
-      padding: 1rem;
-
-      background: var(--paper-light);
-
-      border-left: 4px solid var(--emerald);
-      border-radius: 0.35rem;
-    }
-
-    .contact-block h3 {
-      margin: 0 0 0.5rem;
+    .archive-title {
+      margin: 0 0 0.65rem;
 
       color: var(--emerald-dark);
 
-      font-size: 1.1rem;
+      font-size: 1.55rem;
     }
 
-    .contact-block p {
-      margin: 0.4rem 0;
+    .archive-card p {
+      margin-top: 0;
+    }
+
+    .archive-link {
+      margin-top: auto;
+
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .archive-link::after {
+      content: " →";
+    }
+
+
+    /* IDÉZETSZERŰ LEZÁRÁS */
+
+    .chronicle-closing {
+      max-width: var(--reading-width);
+      margin-right: auto;
+      margin-left: auto;
+      padding: 1.5rem 2rem;
+
+      background: rgba(255, 255, 255, 0.5);
+
+      border-left: 4px solid var(--emerald);
+      border-radius: 0.35rem;
+
+      font-style: italic;
     }
 
 
@@ -473,8 +439,8 @@
         padding-top: 2.5rem;
       }
 
-      .chronicle-grid,
-      .contact-grid {
+      .episode-grid,
+      .archive-grid {
         grid-template-columns: 1fr;
       }
 
@@ -497,12 +463,13 @@
         border-radius: 0.5rem;
       }
 
-      .card {
+      .episode-info {
         padding: 1rem;
       }
 
-      .chronicle-image {
-        height: 13rem;
+      .archive-card {
+        min-height: 0;
+        padding: 1.2rem;
       }
     }
   </style>
@@ -521,22 +488,34 @@
   <nav class="site-nav">
     <div class="page-shell nav-inner">
 
-      <a class="site-name" href="./index.html">
+      <a class="site-name" href="../index.html">
         Admari krónikák
       </a>
 
       <ul class="nav-links">
         <li>
-          <a href="./index.html">Főoldal</a>
+          <a href="../index.html">Főoldal</a>
         </li>
 
         <li>
-          <a href="./smaragd/index.html">Smaragd</a>
+          <a href="./index.html">Smaragd</a>
+        </li>
+		<li>
+          <a href="./kronika.html">Krónika</a>
+        </li>
+		
+        <li>
+          <a href="./leveltar.html">Levéltár</a>
         </li>
 
         <li>
-          <a href="#kapcsolat">Kapcsolat</a>
+          <a href="./galeria.html">Galéria</a>
         </li>
+
+        <li>
+          <a href="./irasok.html">Írások</a>
+        </li>
+		
       </ul>
 
     </div>
@@ -549,154 +528,198 @@
     <div class="page-shell">
 
       <span class="badge">
-        Élő középkori fantasy kaland
+        Admari krónikák · 1. epizód
       </span>
 
-      <h1>Admari krónikák</h1>
+      <h1>Smaragd</h1>
 
       <div class="hero-title-rule" aria-hidden="true"></div>
 
       <p class="hero-subtitle">
-        Lépj be Admar világába!
+        A bányavidék megnyitása
       </p>
 
-      <p class="hero-larp">
-        Élő szerepjátékok · történetek · krónikák
+      <p class="hero-meta">
+        Penc · 2026. augusztus 21–23.
       </p>
 
       <img
         class="hero-image"
-        src="promokep1.jpg"
-        alt="Középkori fantasy hangulatú jelenet Admar világából"
+        src="../smaragd.jpg"
+        alt="Smaragd – az Admari krónikák első epizódja"
       >
 
     </div>
   </header>
 
 
-  <main class="page-shell" id="tartalom">
+  <main class="page-shell">
 
 
-    <!-- BEMUTATKOZÁS -->
+    <!-- RÖVID TÖRTÉNET -->
 
     <section
       class="reading-section intro"
-      aria-labelledby="bemutato-cim"
+      aria-labelledby="tortenet-cim"
     >
 
-      <h2 class="section-title" id="bemutato-cim">
-        Admari krónikák
+      <h2 class="section-title" id="tortenet-cim">
+        A Smaragd története
       </h2>
 
       <p class="intro-lead">
-        Képzeld el, hogy egy középkori fantasy világ
-        valódi szereplője lehetsz!
+        Miközben Admar háborút vívott Ogrullal,
+        a bányavidékre varázskupola borult.
+		Bárki megpróbált kijönni, odaveszett.
       </p>
 
       <p>
-        Az <strong>Admari krónikák</strong> középkori
-        fantasy világban játszódó élő szereplős játék sorozat.
-        A résztvevők nem egy előre megírt
-        történetet néznek végig, hanem annak szereplőivé
-        válnak.
+        A Vas-ormok közelében (de a kupolán kívül) fekvő
+        <strong>Csepkefalvára</strong> három csoport
+        érkezett, hogy felderítse a történteket és
+        megnyissa a bányákhoz vezető utat.
       </p>
 
       <p>
-        Csapatokhoz csatlakozhatsz, küldetéseket
-        teljesíthetsz, kereskedhetsz, nyomozhatsz,
-        tárgyalhatsz vagy harcolhatsz. A játékosok
-        döntései és tettei alakítják az eseményeket,
-        és ezzel együtt Admar történetét is.
+        A király hatalmát a lovagok képviselték,
+        a bányászok és kézművesek érdekeit a
+        zsoldosokkal megerősített Céh képviselte, míg
+        Tibald herceg Tulipános Rendje
+        saját titkos céllal érkezett a vidékre.
       </p>
 
       <p>
-        A történetek egy közös világban játszódnak.
-        Ami egy játék során megtörténik, később
-        Admar történelmének részévé válhat.
+        A varázslatot csak a smaragdok erejével lehetett megtörni,
+		de ezekből kevés maradt, s az is elszórva.
+		A táborok között megindult versengés hamarosan háborúba fordult.
+      </p>
+
+      <p>
+        Végül kiderült, hogy az ármány mögött az ogruli varázsló,
+        <strong>Feketekéz Eirvald</strong> állt.
+        A történet Feketekéz elestével, és a kupola összeomlásával zárult.
       </p>
 
     </section>
 
 
-    <!-- KÖVETKEZŐ JÁTÉK -->
 
-    <section
-      class="card next-game"
-      aria-labelledby="kovetkezo-cim"
-    >
+    <!-- ARCHÍVUM -->
 
-      <h2 class="section-title" id="kovetkezo-cim">
-        Következő játék
-      </h2>
-
-      <p>
-        Az Admari krónikák következő epizódja
-        előkészítés alatt áll.
-      </p>
-
-      <p>
-        Az új történet helyszíne, időpontja és
-        részletei később kerülnek meghirdetésre.
-      </p>
-
-      <span class="coming-soon">
-        Hamarosan
-      </span>
-
-    </section>
+    <section aria-labelledby="archivum-cim">
 
 
-    <!-- KORÁBBI KRÓNIKÁK -->
-
-    <section aria-labelledby="kronikak-cim">
-
-      <h2 class="section-title" id="kronikak-cim">
-        Korábbi krónikák
-      </h2>
-
-      <div class="chronicle-grid">
+      <div class="archive-grid">
 
 
-        <!-- SMARAGD -->
+        <!-- TÖRTÉNET -->
 
-        <article class="chronicle-card">
+        <article class="archive-card">
 
-          <img
-            class="chronicle-image"
-            src="promokep1.jpg"
-            alt="Smaragd – az Admari krónikák első epizódja"
+  <p class="archive-number">
+    I.
+  </p>
+
+  <h3 class="archive-title">
+    Krónika
+  </h3>
+
+  <p>
+    A Smaragd eseményeinek összefoglalása,
+    a Csepkefalvába érkező három tábortól
+    a végső összecsapásig.
+  </p>
+
+  <a
+    class="archive-link"
+    href="kronika.html"
+  >
+    A történet
+  </a>
+
+</article>
+
+
+        <!-- LEVÉLTÁR -->
+
+        <article class="archive-card">
+
+          <p class="archive-number">
+            II.
+          </p>
+
+          <h3 class="archive-title">
+            Levéltár
+          </h3>
+
+          <p>
+            A játék során használt és előkerült
+            levelek, hírdetmények, parancsok,
+			feljegyzések, kéziratok, ritkaságok
+			és könyvek gyűjteménye.
+          </p>
+
+          <a
+            class="archive-link"
+            href="./leveltar.html"
           >
+            Belépés a levéltárba
+          </a>
 
-          <div class="chronicle-content">
+        </article>
 
-            <p class="chronicle-number">
-              Admari krónikák · 1. epizód
-            </p>
 
-            <h3 class="chronicle-title">
-              Smaragd
-            </h3>
+        <!-- GALÉRIA -->
 
-            <p class="chronicle-meta">
-              Penc · 2026. augusztus 21–23.
-            </p>
+        <article class="archive-card">
 
-            <p>
-              Három csapat érkezett Csepkefalvára,
-              hogy megnyissa az Admar számára létfontosságú
-              bányavidéket, és felszámolja az azt körülvevő
-			  varázskupolát. A küldetés végül olyan titkolat
-              tárt fel, amikre senki sem számított.
-            </p>
+          <p class="archive-number">
+            III.
+          </p>
 
-            <a
-              class="cta-button"
-              href="./smaragd/index.html"
-            >
-              A Smaragd krónikája
-            </a>
+          <h3 class="archive-title">
+            Galéria
+          </h3>
 
-          </div>
+          <p>
+            Fényképek a játékról.
+          </p>
+
+          <a
+            class="archive-link"
+            href="./galeria.html"
+          >
+            Képek megtekintése
+          </a>
+
+        </article>
+
+
+        <!-- ÍRÁSOK -->
+
+        <article class="archive-card">
+
+          <p class="archive-number">
+            IV.
+          </p>
+
+          <h3 class="archive-title">
+            Írások és novellák
+          </h3>
+
+          <p>
+            A játék eseményeihez és Admar világához
+            kapcsolódó történetek, visszaemlékezések
+            és novellák.
+          </p>
+
+          <a
+            class="archive-link"
+            href="./irasok.html"
+          >
+            Írások olvasása
+          </a>
+
         </article>
 
 
@@ -705,60 +728,15 @@
     </section>
 
 
-    <!-- KAPCSOLAT -->
+    <!-- LEZÁRÁS -->
 
-    <section
-      class="card"
-      id="kapcsolat"
-      aria-labelledby="kapcsolat-cim"
-    >
+    <section class="chronicle-closing">
 
-      <h2 class="section-title" id="kapcsolat-cim">
-        Kapcsolat
-      </h2>
-
-      <div class="contact-grid">
-
-        <div class="contact-block">
-
-          <h3>E-mail</h3>
-
-          <p>
-            Kérdésekkel, érdeklődéssel vagy
-            a következő játékkal kapcsolatban:
-          </p>
-
-          <p>
-            <a href="mailto:admarszerepjatek@gmail.com">
-              admarszerepjatek@gmail.com
-            </a>
-          </p>
-
-        </div>
-
-
-        <div class="contact-block">
-
-          <h3>Facebook</h3>
-
-          <p>
-            Hírekért és új játékaink meghirdetéséért
-            kövesd Facebook-oldalunkat:
-          </p>
-
-          <p>
-            <a
-              href="https://www.facebook.com/admarikronikak/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Admari krónikák
-            </a>
-          </p>
-
-        </div>
-
-      </div>
+      <p>
+        A Smaragd története lezárult, de szereplőinek
+        döntései és tettei immár Admar történelmének
+        részét képezik.
+      </p>
 
     </section>
 
@@ -768,7 +746,7 @@
 
   <footer>
     <div class="page-shell">
-      © 2026 Admari krónikák
+      © 2026 Admari krónikák · Smaragd
     </div>
   </footer>
 

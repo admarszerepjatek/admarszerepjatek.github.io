@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Zsoldosok iratai – Smaragd Levéltár – Admari krónikák</title>
+
+  <meta
+    name="description"
+    content="A Céhhez és a zsoldos kompániához kapcsolódó levelek, megbízások, toborzások és hadüzenetek a Smaragd élő szerepjátékból."
+  >
+
+  <meta name="theme-color" content="#1f6f49">
+
+  <style>
+    :root {
+      --emerald: #1f6f49;
+      --emerald-dark: #134d34;
+      --paper: #f3efe6;
+      --paper-light: #faf8f2;
+      --ink: #1b1b1b;
+      --muted: #5b5b5b;
+      --border: rgba(31, 111, 73, 0.24);
+      --max-width: 72rem;
+      --reading-width: 68ch;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(255, 255, 255, 0.55),
+          transparent 35rem
+        ),
+        var(--paper);
+
+      color: var(--ink);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        Times,
+        serif;
+
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: var(--emerald-dark);
+      text-decoration-color: rgba(31, 111, 73, 0.4);
+      text-underline-offset: 3px;
+    }
+
+    a:hover,
+    a:focus-visible {
+      text-decoration-color: var(--emerald-dark);
+    }
+
+    .page-shell {
+      width: min(100% - 2rem, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-nav {
+      background: rgba(250, 248, 242, 0.96);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      min-height: 4rem;
+    }
+
+    .site-name {
+      color: var(--emerald-dark);
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-variant: small-caps;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    .hero {
+      padding: 4rem 0 2.7rem;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.35rem 0.75rem;
+      background: var(--emerald);
+      color: white;
+      border-radius: 0.4rem;
+      font-size: 0.85rem;
+      font-variant: small-caps;
+      letter-spacing: 0.1em;
+    }
+
+    h1,
+    h2,
+    h3 {
+      text-wrap: balance;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--emerald-dark);
+      font-size: clamp(2.4rem, 7vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero-title-rule {
+      width: min(15rem, 55vw);
+      height: 3px;
+      margin: 1rem auto 1.3rem;
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--emerald),
+          transparent
+        );
+    }
+
+    .hero-subtitle {
+      max-width: 48rem;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    main {
+      padding-bottom: 4rem;
+    }
+
+    section {
+      margin: 3rem 0;
+    }
+
+    .reading-section {
+      max-width: var(--reading-width);
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .section-title {
+      margin: 0 0 1rem;
+      color: var(--emerald-dark);
+      font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+      font-variant: small-caps;
+      letter-spacing: 0.06em;
+    }
+
+    .intro {
+      font-size: 1.08rem;
+    }
+
+    .intro-lead {
+      color: var(--emerald-dark);
+      font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .document-list {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .document-card {
+      display: grid;
+      grid-template-columns: minmax(12rem, 18rem) 1fr;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      box-shadow: 0 7px 20px rgba(34, 30, 22, 0.09);
+    }
+
+    .document-preview {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 23rem;
+      padding: 1rem;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(31, 111, 73, 0.08),
+          rgba(255, 255, 255, 0.3)
+        );
+      border-right: 1px solid var(--border);
+      text-decoration: none;
+    }
+
+    .document-preview img {
+      width: auto;
+      max-width: 100%;
+      max-height: 27rem;
+      object-fit: contain;
+      border: 1px solid rgba(34, 30, 22, 0.2);
+      box-shadow: 0 7px 16px rgba(34, 30, 22, 0.22);
+      transition:
+        transform 160ms ease,
+        box-shadow 160ms ease;
+    }
+
+    .document-preview:hover img,
+    .document-preview:focus-visible img {
+      transform: scale(1.025);
+      box-shadow: 0 10px 22px rgba(34, 30, 22, 0.3);
+    }
+
+    .preview-label {
+      position: absolute;
+      right: 0.7rem;
+      bottom: 0.6rem;
+      padding: 0.2rem 0.5rem;
+      background: rgba(250, 248, 242, 0.92);
+      color: var(--muted);
+      border-radius: 0.3rem;
+      font-size: 0.72rem;
+      font-variant: small-caps;
+      letter-spacing: 0.06em;
+    }
+
+    .document-content {
+      display: flex;
+      flex-direction: column;
+      padding: clamp(1.4rem, 3vw, 2.2rem);
+    }
+
+    .document-type {
+      margin: 0 0 0.35rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-variant: small-caps;
+      letter-spacing: 0.1em;
+    }
+
+    .document-title {
+      margin: 0 0 0.75rem;
+      color: var(--emerald-dark);
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      line-height: 1.2;
+    }
+
+    .document-description {
+      max-width: 55ch;
+      margin: 0 0 1rem;
+    }
+
+    .document-meta {
+      margin: 0 0 1.4rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .document-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .document-button {
+      display: inline-block;
+      padding: 0.7rem 1.1rem;
+      background: var(--emerald);
+      color: white;
+      border: 2px solid var(--emerald);
+      border-radius: 0.5rem;
+      box-shadow: 0 6px 14px rgba(31, 111, 73, 0.2);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .document-button:hover,
+    .document-button:focus-visible {
+      background: var(--emerald-dark);
+      color: white;
+    }
+
+    .pdf-note {
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    .back-area {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .back-link {
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .back-link::before {
+      content: "← ";
+    }
+
+    footer {
+      padding: 1.5rem 0 2.5rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 760px) {
+      .nav-inner {
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.4rem;
+        padding: 0.8rem 0;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
+
+      .document-card {
+        grid-template-columns: 1fr;
+      }
+
+      .document-preview {
+        min-height: 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .document-preview img {
+        max-height: 32rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-shell {
+        width: min(100% - 1.2rem, var(--max-width));
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .document-content {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="site-nav">
+    <div class="page-shell nav-inner">
+
+      <a class="site-name" href="../../index.html">
+        Admari krónikák
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="../../index.html">Főoldal</a></li>
+        <li><a href="../index.html">Smaragd</a></li>
+        <li><a href="../leveltar.html">Levéltár</a></li>
+        <li><a href="../galeria.html">Galéria</a></li>
+        <li><a href="../irasok.html">Írások</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <header class="hero">
+    <div class="page-shell">
+
+      <span class="badge">
+        Smaragd · Levéltár · II. gyűjtemény
+      </span>
+
+      <h1>Zsoldosok</h1>
+
+      <div class="hero-title-rule" aria-hidden="true"></div>
+
+      <p class="hero-subtitle">
+        A Céh által felfogadott zsoldos kompánia
+        megbízásai, levelei, toborzó üzenetei és
+        hadüzenetei.
+      </p>
+
+    </div>
+  </header>
+
+
+  <main class="page-shell">
+
+
+    <section aria-labelledby="iratok-cim">
+
+      <h2 class="section-title" id="iratok-cim">
+        A Céh és a zsoldosok iratai
+      </h2>
+
+      <div class="document-list">
+
+
+        <!-- A CÉH MEGBÍZÓLEVELE -->
+
+        <article class="document-card">
+
+          <a
+            class="document-preview"
+            href="pdf/zsoldosok/A Céh megbízólevele.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="preview/zsoldosok/A Céh megbízólevele.jpg"
+              alt="A Céh megbízólevele"
+              loading="lazy"
+            >
+
+            <span class="preview-label">Előnézet</span>
+          </a>
+
+          <div class="document-content">
+
+            <p class="document-type">Megbízólevél</p>
+
+            <h3 class="document-title">
+              A Céh megbízólevele
+            </h3>
+
+            <p class="document-description">
+              A Céh által kiadott megbízás a zsoldoskapitány
+              és fegyveres társai számára. Feladatuk a
+              bánya felé vezető út megnyitása és a Céh
+              érdekeinek biztosítása volt.
+            </p>
+
+            <p class="document-meta">PDF dokumentum</p>
+
+            <div class="document-actions">
+              <a
+                class="document-button"
+                href="pdf/zsoldosok/A Céh megbízólevele.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Dokumentum megtekintése
+              </a>
+
+              <span class="pdf-note">Új lapon nyílik meg</span>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- DEXTER LEVELE -->
+
+        <article class="document-card">
+
+          <a
+            class="document-preview"
+            href="pdf/zsoldosok/Dexter_levele.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="preview/zsoldosok/Dexter_levele.jpg"
+              alt="Dexter levele"
+              loading="lazy"
+            >
+
+            <span class="preview-label">Előnézet</span>
+          </a>
+
+          <div class="document-content">
+
+            <p class="document-type">Levél</p>
+
+            <h3 class="document-title">
+              Dexter levele
+            </h3>
+
+            <p class="document-description">
+              Beszámoló a bánya körül tapasztalt
+              különös jelenségekről és az ezekkel
+              kapcsolatos kutatásokról.
+            </p>
+
+            <p class="document-meta">PDF dokumentum</p>
+
+            <div class="document-actions">
+              <a
+                class="document-button"
+                href="pdf/zsoldosok/Dexter_levele.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Dokumentum megtekintése
+              </a>
+
+              <span class="pdf-note">Új lapon nyílik meg</span>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- ZSOLDOS TOBORZÁS -->
+
+        <article class="document-card">
+
+          <a
+            class="document-preview"
+            href="pdf/zsoldosok/Zsoldos_toborzás.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="preview/zsoldosok/Zsoldos_toborzás.jpg"
+              alt="Zsoldos toborzás"
+              loading="lazy"
+            >
+
+            <span class="preview-label">Előnézet</span>
+          </a>
+
+          <div class="document-content">
+
+            <p class="document-type">Toborzó felhívás</p>
+
+            <h3 class="document-title">
+              Zsoldos toborzás
+            </h3>
+
+            <p class="document-description">
+              A kompánia felhívása bányászokhoz,
+              ércmunkásokhoz és más vállalkozó kedvű
+              emberekhez, akik csatlakoznának hozzájuk.
+            </p>
+
+            <p class="document-meta">PDF dokumentum</p>
+
+            <div class="document-actions">
+              <a
+                class="document-button"
+                href="pdf/zsoldosok/Zsoldos_toborzás.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Dokumentum megtekintése
+              </a>
+
+              <span class="pdf-note">Új lapon nyílik meg</span>
+            </div>
+
+          </div>
+
+        </article>
+
+        <!-- HADÜZENET 2 -->
+
+        <article class="document-card">
+
+          <a
+            class="document-preview"
+            href="pdf/zsoldosok/Zsoldos_hadüzenet_2.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="preview/zsoldosok/Zsoldos_hadüzenet_2.jpg"
+              alt="Zsoldos hadüzenet II."
+              loading="lazy"
+            >
+
+            <span class="preview-label">Előnézet</span>
+          </a>
+
+          <div class="document-content">
+
+            <p class="document-type">Hadüzenet</p>
+
+            <h3 class="document-title">
+              Zsoldos hadüzenet I.
+            </h3>
+
+            <p class="document-description">
+              Fenyegető üzenet a lovagok és
+              szövetségeseik számára.
+            </p>
+
+            <p class="document-meta">PDF dokumentum</p>
+
+            <div class="document-actions">
+              <a
+                class="document-button"
+                href="pdf/zsoldosok/Zsoldos_hadüzenet_2.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Dokumentum megtekintése
+              </a>
+
+              <span class="pdf-note">Új lapon nyílik meg</span>
+            </div>
+
+          </div>
+
+        </article>
+		
+		        <!-- HADÜZENET 1 -->
+
+        <article class="document-card">
+
+          <a
+            class="document-preview"
+            href="pdf/zsoldosok/Zsoldos_hadüzenet_1.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="preview/zsoldosok/Zsoldos_hadüzenet_1.jpg"
+              alt="Zsoldos hadüzenet I."
+              loading="lazy"
+            >
+
+            <span class="preview-label">Előnézet</span>
+          </a>
+
+          <div class="document-content">
+
+            <p class="document-type">Hadüzenet</p>
+
+            <h3 class="document-title">
+              Zsoldos hadüzenet II.
+            </h3>
+
+            <p class="document-description">
+              A Tulipános Rendnek címzett kihívás,
+              amelyben a zsoldos kompánia egy smaragdért
+              vívandó összecsapást helyez kilátásba.
+            </p>
+
+            <p class="document-meta">PDF dokumentum</p>
+
+            <div class="document-actions">
+              <a
+                class="document-button"
+                href="pdf/zsoldosok/Zsoldos_hadüzenet_1.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Dokumentum megtekintése
+              </a>
+
+              <span class="pdf-note">Új lapon nyílik meg</span>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- HADÜZENET 3 -->
+
+        <article class="document-card">
+
+          <a
+            class="document-preview"
+            href="pdf/zsoldosok/Zsoldos_hadüzenet_3.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="preview/zsoldosok/Zsoldos_hadüzenet_3.jpg"
+              alt="Zsoldos hadüzenet III."
+              loading="lazy"
+            >
+
+            <span class="preview-label">Előnézet</span>
+          </a>
+
+          <div class="document-content">
+
+            <p class="document-type">Hadüzenet</p>
+
+            <h3 class="document-title">
+              Zsoldos hadüzenet III.
+            </h3>
+
+            <p class="document-description">
+              A lovagoknak küldött ultimátum,
+              amely a smaragdokért vívott harcot
+              helyezi kilátásba.
+            </p>
+
+            <p class="document-meta">PDF dokumentum</p>
+
+            <div class="document-actions">
+              <a
+                class="document-button"
+                href="pdf/zsoldosok/Zsoldos_hadüzenet_3.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Dokumentum megtekintése
+              </a>
+
+              <span class="pdf-note">Új lapon nyílik meg</span>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- GÚNYÜZENET -->
+
+        <article class="document-card">
+
+          <a
+            class="document-preview"
+            href="pdf/zsoldosok/Gúnyüzenet.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="preview/zsoldosok/Gúnyüzenet.jpg"
+              alt="Gúnyüzenet"
+              loading="lazy"
+            >
+
+            <span class="preview-label">Előnézet</span>
+          </a>
+
+          <div class="document-content">
+
+            <p class="document-type">Üzenet</p>
+
+            <h3 class="document-title">
+              Gúnyüzenet
+            </h3>
+
+            <p class="document-description">
+              Rövid, csipkelődő üzenet a lovagok
+              számára, amely a zsoldosok sajátos
+              humorát őrzi.
+            </p>
+
+            <p class="document-meta">PDF dokumentum</p>
+
+            <div class="document-actions">
+              <a
+                class="document-button"
+                href="pdf/zsoldosok/Gúnyüzenet.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Dokumentum megtekintése
+              </a>
+
+              <span class="pdf-note">Új lapon nyílik meg</span>
+            </div>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <div class="back-area">
+      <a
+        class="back-link"
+        href="../leveltar.html"
+      >
+        Vissza a levéltárhoz
+      </a>
+    </div>
+
+  </main>
+
+
+  <footer>
+    <div class="page-shell">
+      © 2026 Admari krónikák · Smaragd · Levéltár · Zsoldosok
+    </div>
+  </footer>
+
+</body>
+</html>
