@@ -5,7 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Írások – Smaragd – Admari krónikák</title>
-  <meta name="description" content="A Smaragd világához kapcsolódó írások és novellák.">
+
+  <meta
+    name="description"
+    content="Történetek, visszaemlékezések és más írások az Admari krónikák Smaragd című epizódjának eseményeiről."
+  >
+
   <meta name="theme-color" content="#1f6f49">
 
   <style>
@@ -18,6 +23,7 @@
       --muted: #5b5b5b;
       --border: rgba(31, 111, 73, 0.24);
       --max-width: 72rem;
+      --reading-width: 70ch;
     }
 
     * {
@@ -25,12 +31,12 @@
     }
 
     html {
+      scroll-behavior: smooth;
       font-size: 16px;
     }
 
     body {
       margin: 0;
-      min-height: 100vh;
 
       background:
         radial-gradient(
@@ -48,12 +54,19 @@
         Times,
         serif;
 
-      line-height: 1.65;
+      line-height: 1.72;
+      text-rendering: optimizeLegibility;
     }
 
     a {
       color: var(--emerald-dark);
+      text-decoration-color: rgba(31,111,73,0.4);
       text-underline-offset: 3px;
+    }
+
+    a:hover,
+    a:focus-visible {
+      text-decoration-color: var(--emerald-dark);
     }
 
     .page-shell {
@@ -61,8 +74,13 @@
       margin: 0 auto;
     }
 
+
+    /* =====================================================
+       FELSŐ MENÜ
+       ===================================================== */
+
     .site-nav {
-      background: rgba(250, 248, 242, 0.96);
+      background: rgba(250,248,242,0.96);
       border-bottom: 1px solid var(--border);
     }
 
@@ -97,38 +115,24 @@
       text-decoration: none;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
       text-decoration: underline;
       text-underline-offset: 5px;
     }
 
-    main {
-      display: flex;
-      align-items: center;
-      justify-content: center;
 
-      min-height: calc(100vh - 10rem);
-      padding: 4rem 0;
-    }
+    /* =====================================================
+       FEJLÉC
+       ===================================================== */
 
-    .coming-soon {
-      width: min(100%, 44rem);
-      padding: clamp(2rem, 6vw, 4rem);
-
-      background: rgba(255, 255, 255, 0.68);
-
-      border: 1px solid var(--border);
-      border-radius: 0.8rem;
-
-      box-shadow:
-        0 12px 30px rgba(34, 30, 22, 0.12);
-
+    .hero {
+      padding: 4rem 0 2.7rem;
       text-align: center;
     }
 
     .badge {
       display: inline-block;
-
       margin-bottom: 1rem;
       padding: 0.35rem 0.75rem;
 
@@ -142,23 +146,28 @@
       letter-spacing: 0.1em;
     }
 
+    h1,
+    h2,
+    h3 {
+      text-wrap: balance;
+    }
+
     h1 {
       margin: 0;
 
       color: var(--emerald-dark);
 
-      font-size: clamp(2.3rem, 7vw, 4rem);
-      line-height: 1.1;
-
-      text-transform: uppercase;
+      font-size: clamp(2.4rem, 7vw, 4.5rem);
+      line-height: 1;
       letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
-    .title-rule {
-      width: min(12rem, 55vw);
+    .hero-title-rule {
+      width: min(15rem, 55vw);
       height: 3px;
 
-      margin: 1rem auto 1.5rem;
+      margin: 1rem auto 1.3rem;
 
       background:
         linear-gradient(
@@ -169,53 +178,205 @@
         );
     }
 
-    .coming-title {
-      margin: 1.5rem 0 0.6rem;
+    .hero-subtitle {
+      max-width: 48rem;
+      margin: 0 auto;
+
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+
+    /* =====================================================
+       TARTALOM
+       ===================================================== */
+
+    main {
+      padding-bottom: 4rem;
+    }
+
+    .reading-section {
+      max-width: var(--reading-width);
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .intro {
+      margin: 2.5rem auto 3rem;
+      font-size: 1.08rem;
+    }
+
+    .intro-lead {
+      color: var(--emerald-dark);
+      font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+
+    /* =====================================================
+       TARTALOMJEGYZÉK
+       ===================================================== */
+
+    .contents {
+      max-width: var(--reading-width);
+      margin: 0 auto 4rem;
+      padding: 1.6rem 2rem;
+
+      background: rgba(255,255,255,0.55);
+
+      border: 1px solid var(--border);
+      border-radius: 0.7rem;
+    }
+
+    .contents h2 {
+      margin: 0 0 0.8rem;
 
       color: var(--emerald-dark);
 
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-variant: small-caps;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.07em;
     }
 
-    .coming-text {
-      max-width: 34rem;
-      margin: 0 auto 2rem;
-
-      color: var(--muted);
-      font-size: 1.05rem;
+    .contents ol {
+      margin: 0;
+      padding-left: 1.5rem;
     }
 
-    .back-button {
-      display: inline-block;
+    .contents li {
+      margin: 0.35rem 0;
+    }
 
-      padding: 0.75rem 1.2rem;
-
-      background: var(--emerald);
-      color: white;
-
-      border: 2px solid var(--emerald);
-      border-radius: 0.5rem;
-
-      box-shadow:
-        0 6px 14px rgba(31, 111, 73, 0.2);
-
+    .contents a {
       font-weight: 700;
       text-decoration: none;
     }
 
-    .back-button:hover {
-      background: var(--emerald-dark);
-      color: white;
+    .contents a:hover,
+    .contents a:focus-visible {
+      text-decoration: underline;
     }
 
-    .back-button::before {
+
+    /* =====================================================
+       ÍRÁSOK
+       ===================================================== */
+
+    .collection-heading {
+      max-width: var(--reading-width);
+      margin: 0 auto 1rem;
+
+      color: var(--emerald-dark);
+
+      text-align: center;
+      font-size: clamp(1.35rem, 3vw, 1.7rem);
+      font-style: italic;
+      font-weight: normal;
+    }
+
+    .collection-author {
+      max-width: var(--reading-width);
+      margin: 0 auto 3.5rem;
+
+      color: var(--muted);
+
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .story {
+      position: relative;
+
+      max-width: var(--reading-width);
+      margin: 0 auto 4rem;
+      padding: clamp(1.5rem, 4vw, 2.8rem);
+
+      background: rgba(255,255,255,0.68);
+
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+
+      box-shadow:
+        0 7px 20px rgba(34,30,22,0.08);
+    }
+
+    .story-number {
+      margin: 0 0 0.35rem;
+
+      color: var(--muted);
+
+      font-size: 0.78rem;
+      font-variant: small-caps;
+      letter-spacing: 0.12em;
+    }
+
+    .story h3 {
+      margin: 0 0 1.5rem;
+
+      color: var(--emerald-dark);
+
+      font-size: clamp(1.7rem, 4vw, 2.35rem);
+      line-height: 1.2;
+    }
+
+    .story p {
+      margin: 0 0 1.15rem;
+    }
+
+    .story p:last-child {
+      margin-bottom: 0;
+    }
+
+    .story-dialogue {
+      padding-left: 1.5rem;
+      font-style: italic;
+    }
+
+    .story-divider {
+      width: 7rem;
+      height: 2px;
+
+      margin: 2rem auto 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--emerald),
+          transparent
+        );
+    }
+
+
+    /* =====================================================
+       VISSZA
+       ===================================================== */
+
+    .back-area {
+      max-width: var(--reading-width);
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .back-link {
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .back-link::before {
       content: "← ";
     }
 
+
+    /* =====================================================
+       LÁBLÉC
+       ===================================================== */
+
     footer {
-      padding: 1.5rem 0 2rem;
+      padding: 1.5rem 0 2.5rem;
 
       color: var(--muted);
 
@@ -225,11 +386,18 @@
       font-size: 0.92rem;
     }
 
+
+    /* =====================================================
+       MOBIL
+       ===================================================== */
+
     @media (max-width: 650px) {
+
       .nav-inner {
         flex-direction: column;
         justify-content: center;
         gap: 0.4rem;
+
         padding: 0.8rem 0;
       }
 
@@ -238,13 +406,30 @@
         justify-content: center;
         gap: 1rem;
       }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
+
+      .contents {
+        padding: 1.3rem 1.4rem;
+      }
+
+      .story {
+        padding: 1.4rem;
+      }
     }
   </style>
 </head>
 
+
 <body>
 
+
+  <!-- FELSŐ MENÜ -->
+
   <nav class="site-nav">
+
     <div class="page-shell nav-inner">
 
       <a class="site-name" href="../index.html">
@@ -252,20 +437,39 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="../index.html">Főoldal</a></li>
-        <li><a href="./index.html">Smaragd</a></li>
-        <li><a href="./leveltar.html">Levéltár</a></li>
-        <li><a href="./galeria.html">Galéria</a></li>
-        <li><a href="./irasok.html">Írások</a></li>
+
+        <li>
+          <a href="../index.html">Főoldal</a>
+        </li>
+
+        <li>
+          <a href="./index.html">Smaragd</a>
+        </li>
+
+        <li>
+          <a href="./leveltar.html">Levéltár</a>
+        </li>
+
+        <li>
+          <a href="./galeria.html">Galéria</a>
+        </li>
+
+        <li>
+          <a href="./irasok.html">Írások</a>
+        </li>
+
       </ul>
 
     </div>
+
   </nav>
 
 
-  <main class="page-shell">
+  <!-- FEJLÉC -->
 
-    <section class="coming-soon">
+  <header class="hero">
+
+    <div class="page-shell">
 
       <span class="badge">
         Smaragd · Írások
@@ -273,32 +477,335 @@
 
       <h1>Írások</h1>
 
-      <div class="title-rule"></div>
+      <div
+        class="hero-title-rule"
+        aria-hidden="true"
+      ></div>
 
-      <h2 class="coming-title">
-        Hamarosan
-      </h2>
-
-      <p class="coming-text">
-        A Smaragd eseményeihez és Admar világához kapcsolódó
-        történetek, novellák és más írások hamarosan
-        ezen a helyen lesznek olvashatók.
+      <p class="hero-subtitle">
+        Történetek, legendák és visszaemlékezések
+        Csepkefalváról és a Smaragd eseményeiről.
       </p>
 
-      <a class="back-button" href="./index.html">
+    </div>
+
+  </header>
+
+
+  <main class="page-shell">
+
+
+    <!-- BEVEZETŐ -->
+
+    <section class="reading-section intro">
+
+      <p class="intro-lead">
+        A kalandokból idővel történetek, a történetekből
+        pedig legendák születnek.
+      </p>
+
+      <p>
+        E helyen gyűjtjük össze az Admari krónikák
+        eseményeihez kapcsolódó elbeszéléseket,
+        visszaemlékezéseket és népi történeteket.
+      </p>
+
+    </section>
+
+
+    <!-- TARTALOMJEGYZÉK -->
+
+    <nav class="contents" aria-label="Az írások tartalomjegyzéke">
+
+      <h2>
+        Tartalom
+      </h2>
+
+      <ol>
+        <li>
+          <a href="#bendeguz">
+            Bendegúz lovag
+          </a>
+        </li>
+
+        <li>
+          <a href="#titokzatos-idegen">
+            A titokzatos idegen
+          </a>
+        </li>
+
+        <li>
+          <a href="#enthin">
+            Enthin, a zsoldosvezér
+          </a>
+        </li>
+
+        <li>
+          <a href="#ditrik">
+            Az erdő csendes gyilkosa
+          </a>
+        </li>
+      </ol>
+
+    </nav>
+
+
+    <!-- GYŰJTEMÉNY -->
+
+    <h2 class="collection-heading">
+      Részletek a „Népi történetek gyűjteménye” kötetből
+    </h2>
+
+    <p class="collection-author">
+      Baltás Henrik hozzáírása
+    </p>
+
+
+    <!-- BENDEGÚZ -->
+
+    <article class="story" id="bendeguz">
+
+      <p class="story-number">
+        I. történet
+      </p>
+
+      <h3>
+        Bendegúz lovag
+      </h3>
+
+      <p>
+        Burkus Bendegúz hírneve már messze vidéken is ismert.
+        Sokan nem tudják, de Csepkefalván volt apród Nádvári
+        Zobor mester keze alatt.
+      </p>
+
+      <p>
+        Bendegúzról az a hír járja, hogy nem fogja a fegyver.
+        Ebben lehet valami, már ha az akkor történt eseményeket
+        nézzük. Először is, midőn a lovagok táborukból kivonultak,
+        gyakorta hagyták az egész őrház védelmét egyetlen szem
+        őrre. Kitaláltátok, Bendegúz volt az.
+      </p>
+
+      <p>
+        Egyszer rablók csaptak le a helyi földműves, Balambér
+        készleteire. Futva menekültek a faluból, és mivel nem
+        elég jól ismerték a környéket, egyenesen az őrház felé
+        futottak. Amikor meglátták Bendegúzt, úgy megijedtek,
+        hogy az egyik a másikon esett át. Utol is érte őket
+        a gyászos vég.
+      </p>
+
+      <p>
+        Egy másik alkalommal egymás után két kardforgató vándor
+        – mint kiderült, a titokzatos Tulipános Rend tagjai
+        voltak – hívta ki párbajra. Mindkét kihívó alul maradt.
+      </p>
+
+      <p>
+        Egyesek szerint a csepkefalvai csatában megsebesült
+        ugyan, úgyhogy nem igaz, hogy sebezhetetlen lenne.
+        Ezt sem cáfolni, sem megerősíteni nem tudom, mivel a
+        csata első pillanataiban kaptam sebet, s utána nem
+        láttam, mi történt.
+      </p>
+
+      <p>
+        Annyit mondhatok csak, ismerve az apród Bendegúz tetteit,
+        nem csodálkozom, hogy híres lett. Azt is elmondhatom,
+        hogy még ha meg is sebesült volna a csatában, egészen
+        biztosan nem súlyosan: ugyanis az a része a történetnek
+        bizonyos, hogy a csata után ütötték lovaggá.
+      </p>
+
+      <div class="story-divider" aria-hidden="true"></div>
+
+    </article>
+
+
+    <!-- TITOKZATOS IDEGEN -->
+
+    <article class="story" id="titokzatos-idegen">
+
+      <p class="story-number">
+        II. történet
+      </p>
+
+      <h3>
+        A titokzatos idegen
+      </h3>
+
+      <p>
+        Az a hír járja, hogy amikor a lovagok igazán nagy bajban
+        vannak, megjelenik egy titokzatos idegen. Páncélt visel,
+        fekete sisakot, vörös palástot. Hatalmas, kétkezes
+        pallost forgat.
+      </p>
+
+      <p>
+        A csata után aztán szőrén-szálán eltűnik olyan
+        titokzatosan, ahogy érkezett. Egyesek szerint a
+        lovagrend alapítója a túlvilágról segít bajtársainak.
+      </p>
+
+      <p>
+        Magam is láttam egyszer őt: megjelent a
+        csepkefalvai csatában.
+      </p>
+
+      <div class="story-divider" aria-hidden="true"></div>
+
+    </article>
+
+
+    <!-- ENTHIN -->
+
+    <article class="story" id="enthin">
+
+      <p class="story-number">
+        III. történet
+      </p>
+
+      <h3>
+        Enthin, a zsoldosvezér
+      </h3>
+
+      <p>
+        Hírhedt kapitánya volt Enthin egy zsoldos kompániának,
+        amely a Céhnek dolgozott. Ott voltak a kupola leomlásánál,
+        és megannyi más kalandos történet szereplői.
+      </p>
+
+      <p>
+        Enthin magas, szikár ember volt. Követői tisztelték,
+        ellenségei rettegték. Láncinget hordott, egyik kezében
+        fejsze, a másikban kard vagy szablya. Nyakán állatbőr
+        keresztbe vetve. Alakját azóta fafaragók tányérokon
+        jelenítik meg, kelendő áru az ilyen étkészlet.
+      </p>
+
+      <p>
+        Sok bajvívás győztese, és az íjjal is jól bánt.
+        Egyszer egy ilyen versenyen egy vándorlegénnyel volt
+        szoros a küzdelem, akiről később kiderült, hogy a
+        Tulipános Rend íjászmestere.
+      </p>
+
+      <p>
+        Három nyilat úgy lőtt a cél közepébe, hogy azok hegye
+        ugyanoda talált, egy csomóban álltak ki. Amikor Enthinre
+        került a sor, odalépett, szinte oda sem nézett, az íjat
+        hanyag mozdulattal felhúzta, s a nyílvessző széttörte
+        ellenfele vesszőjét, a korábban eresztett nyílvesszők
+        pozdorjává törve hullottak alá.
+      </p>
+
+      <p>
+        De nem csak hadi tudományáról volt híres.
+        A „Visszaszólások Nagymestereként” is hívták.
+        Ugyan csak a lovagrendeknek vagy titkos társaságoknak
+        lehet nagymesterük? Volt az a zsoldosoknak is:
+        „A Visszaszólások Nagymestere”. Szóban vívott párbajban
+        ő ugyan alul nem maradt.
+      </p>
+
+      <p>
+        Még sok kaland fűződik a nevéhez, de ha azokat mind
+        le akarnánk írni, a könyv nem lenne elég.
+      </p>
+
+      <div class="story-divider" aria-hidden="true"></div>
+
+    </article>
+
+
+    <!-- DITRIK -->
+
+    <article class="story" id="ditrik">
+
+      <p class="story-number">
+        IV. történet
+      </p>
+
+      <h3>
+        Az erdő csendes gyilkosa
+      </h3>
+
+      <p>
+        Egy másik híres zsoldos Ditrik Etelsson, akit ellenfelei
+        csak „csendes gyilkosnak” vagy „bújkáló gyilkosnak”
+        neveztek, a falvakban pedig úgy ment híre, mint az
+        „erdő csendes gyilkosa”. Hirtelen csapott le a sűrűből,
+        a legváratlanabb pillanatokban.
+      </p>
+
+      <p>
+        Eredetileg katona volt, így megismerte a király
+        katonáinak hadi szokásait. Ott is felderítőként
+        munkálkodott, bár azt is hallottam, hogy tábori lelkész
+        volt igazából.
+      </p>
+
+      <p>
+        Több helyre elszegődött, miután kilépett a seregből.
+        Például részt vett egy kikötőváros védelmében.
+        A város nevét már elfelejtettem, de nem lehetett közel,
+        mert a legközelebbi is nagyon messze van, több
+        királysággal odébb. Világlátott emberről beszélünk tehát.
+      </p>
+
+      <p>
+        Hírnevét leginkább annak köszönhette, hogy gyakran
+        eltűnt a sűrűben, s azután váratlanul megjelent ott,
+        ahol az ellenség nem számított rá.
+      </p>
+
+      <p>
+        A hídfői csatában például félelmetes mészárlást
+        rendezett, a csata sikere nagyrészt rajta múlt.
+        Rárontott egyedül az ellenség táborára, máskor egy
+        árokból mászott elő az ellenség oldalában, vagy a
+        patakból ugrott elő hirtelen.
+      </p>
+
+      <p>
+        Manapság is, ha kiengedik a gyerekeket játszani az
+        erdőszélre, mondogatják a szülők:
+      </p>
+
+      <p class="story-dialogue">
+        – Sötétedésre hazagyertek, mert elkap titeket a Ditrik!
+      </p>
+
+      <div class="story-divider" aria-hidden="true"></div>
+
+    </article>
+
+
+    <!-- VISSZA -->
+
+    <div class="back-area">
+
+      <a
+        class="back-link"
+        href="./index.html"
+      >
         Vissza a Smaragd oldalára
       </a>
 
-    </section>
+    </div>
 
   </main>
 
 
   <footer>
+
     <div class="page-shell">
-      © 2026 Admari krónikák · Smaragd
+      © 2026 Admari krónikák · Smaragd · Írások
     </div>
+
   </footer>
+
 
 </body>
 </html>
